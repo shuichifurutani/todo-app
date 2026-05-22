@@ -2,7 +2,7 @@ const todoInput = document.getElementById("todoInput");
 const addButton = document.getElementById("addButton");
 const todoList = document.getElementById("todoList");
 
-addButton.addEventListener("click", function () {
+function addTodo() {
   const todoText = todoInput.value;
 
   if (todoText === "") {
@@ -19,4 +19,12 @@ addButton.addEventListener("click", function () {
 
   todoList.appendChild(li);
   todoInput.value = "";
+}
+
+addButton.addEventListener("click", addTodo);
+
+todoInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addTodo();
+  }
 });
